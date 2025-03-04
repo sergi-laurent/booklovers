@@ -54,6 +54,11 @@ class User extends Authenticatable
         return $this->hasOne(Wishlist::class, foreignKey:'user_id');
     }
 
+    public function books()
+    {
+        return $this->belongsToMany(Book::class);
+    }
+
 
     /**
      * Get the user's initials
