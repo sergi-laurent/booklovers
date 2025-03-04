@@ -7,6 +7,10 @@ Route::get('/', function () {
     return view('welcome');
 })->name('home');
 
+// Route for the index and show for books
+Route::get('/books', [\App\Http\Controllers\BookController::class, 'index']);
+Route::get('/books/{book}', [\App\Http\Controllers\BookController::class, 'show']);
+
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])
     ->name('dashboard');
