@@ -23,7 +23,7 @@ class DatabaseSeeder extends Seeder
         User::factory(count:10)->create();
         Book::factory(count:10)->create();
         Group::factory(count:5)->create();
-        Wishlist::factory(count:5)->create();
+        Wishlist::factory(count:10)->create();
 
 
 
