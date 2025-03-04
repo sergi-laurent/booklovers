@@ -9,4 +9,9 @@ class Wishlist extends Model
 {
     /** @use HasFactory<\Database\Factories\WishlistFactory> */
     use HasFactory;
+
+    public function user()
+    {
+        return $this->belongsTo(related:User::class, foreignKey:'user_id');
+    }
 }

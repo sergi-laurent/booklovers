@@ -47,6 +47,14 @@ class User extends Authenticatable
         ];
     }
 
+
+    // Model relations ----------------------
+    public function wishlist()
+    {
+        return $this->hasOne(Wishlist::class, foreignKey:'user_id');
+    }
+
+
     /**
      * Get the user's initials
      */
