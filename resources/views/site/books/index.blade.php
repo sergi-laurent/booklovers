@@ -2,6 +2,6 @@
 
 <ul>
     @foreach($books as $book)
-        <li>{{$book->title}}</li>
+        <li><a href="/books/{{$book->id}}">{{$book->title}}</li>
     @endforeach
 </ul>
