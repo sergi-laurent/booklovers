@@ -6,8 +6,14 @@ use Livewire\Volt\Volt;
 Route::get('/', [\App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 // Route for the index and show for books
-Route::get('/books', [\App\Http\Controllers\BookController::class, 'index']);
-Route::get('/books/{book}', [\App\Http\Controllers\BookController::class, 'show']);
+Route::resource('books',App\Http\Controllers\BookController::class);
+
+
+
+
+
+
+
 
 // Route for the show for wishlists
 Route::get('/wishlists/{wishlist}', [\App\Http\Controllers\WishlistController::class, 'show']);
