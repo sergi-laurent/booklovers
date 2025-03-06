@@ -8,6 +8,7 @@
   </head>
 
   <body>
+    <x-site-layout-header/>
 
     <div class="max-w-7xl m-auto">
         {{$slot}}
