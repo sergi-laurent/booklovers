@@ -13,5 +13,6 @@
     <div class="max-w-7xl m-auto">
         {{$slot}}
     </div>
+    <x-site-layout-footer/>
   </body>
 </html>
