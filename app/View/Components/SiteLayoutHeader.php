@@ -24,7 +24,7 @@ class SiteLayoutHeader extends Component
         $menu = [
             'Books' => '/books',
             'Groups' => '',
-            'Wishlist' => '',
+            'Wishlist' => '/wishlists/1',
         ];
 
         return view('components.site-layout-header', compact(var_name:'menu'));
