@@ -5,8 +5,9 @@ use Livewire\Volt\Volt;
 
 Route::get('/', [\App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-// Route for the index and show for books
+
 Route::resource('books',App\Http\Controllers\BookController::class);
+Route::resource('groups',App\Http\Controllers\GroupController::class);
 
 
 

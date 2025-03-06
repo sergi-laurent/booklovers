@@ -23,7 +23,7 @@ class SiteLayoutHeader extends Component
     {
         $menu = [
             'Books' => '/books',
-            'Groups' => '',
+            'Groups' => '/groups',
             'Wishlist' => '/wishlists/1',
         ];
 
