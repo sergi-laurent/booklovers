@@ -6,7 +6,7 @@
             <li class="p-2 border-t border-t-black hover:bg-blue-50">
                 <a href="/books/{{$book->id}}">
                     <h3 class="font-bold text-2xl">{{$book->title}}</h3>
-                    <p class="line-clamp-2">By {{$book->author}}</p>
+                    <p class="line-clamp-2 mt-2">By {{$book->author}}</p>
                 </a>
             </li>
         @endforeach
