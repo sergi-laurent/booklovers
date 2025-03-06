@@ -1,5 +1,5 @@
 <x-site-layout>
-    <h1 class="font-bold text-2xl">This is the list of books</h1>
+    <h1 class="font-bold text-4xl text-center uppercase">Explore the Library</h1>
 
     <div class="text-right">
 		<a href="{{route('books.create')}}" class="bg-blue-500 text-purple-50 uppercase p-2 hover:font-semibold rounded-sm">Create Book</a> 
@@ -10,7 +10,11 @@
             <li class="p-2 border-t border-t-black hover:bg-blue-50">
                 <a href="{{route('books.show', $book)}}">
                     <h3 class="font-bold text-2xl">{{$book->title}}</h3>
-                    <p class="line-clamp-2 mt-2">By {{$book->author}}</p>
+                    <div class="flex gap-1">
+                        <p class="line-clamp-2">By</p>
+                        <p class="line-clamp-2 font-semibold">{{$book->author}}</p>
+                    </div>
+                    
                 </a>
             </li>
         @endforeach
