@@ -15,11 +15,9 @@ class BookController extends Controller
         return view('site.books.index', ['books'=>$books]);
     }
 
-    public function show(int $book)
+    public function show(Book $book)
     {
-        //Step 1: fetch the data -> Only the book with a specific id
-        $book = Book::where('id',$book)->first();
-        //Step 2 -> render the data
+
         return view('site.books.show', ['book'=>$book]);
     }
     
