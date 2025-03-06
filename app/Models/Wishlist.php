@@ -14,4 +14,9 @@ class Wishlist extends Model
     {
         return $this->belongsTo(related:User::class, foreignKey:'user_id');
     }
+
+    public function books()
+    {
+        return $this->belongsToMany(Book::class, 'book_wishlist');
+    }
 }

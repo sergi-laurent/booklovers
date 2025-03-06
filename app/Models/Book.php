@@ -14,4 +14,11 @@ class Book extends Model
     {
         return $this->belongsToMany(User::class, 'book_user');
     }
+
+    public function wishlists()
+    {
+        return $this->belongsToMany(Wishlist::class, 'book_wishlist');
+    }
+
+
 }
