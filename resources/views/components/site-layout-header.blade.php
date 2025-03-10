@@ -6,6 +6,13 @@
                     <li class="hover:font-semibold hover:text-white"><a href="{{$url}}">{{$label}}</a></li>
                 @endforeach
             </ul>
-            <div>Login Comes Here</div>
+            
+            <div class="bg-blue-50 text-blue-500 p-1 rounded-sm px-2">
+                @if(auth()->user() != null)
+                    <a href="">{{ auth()->user()->name }} </a>
+                @else
+                    <a href="{{route('login')}}">Log in</a>
+                @endif
+            </div>
         </div>
 </div>

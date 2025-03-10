@@ -11,13 +11,10 @@ Route::resource('groups',App\Http\Controllers\GroupController::class);
 
 
 
+// Private Area -> User Pages = Wishlist and Library
+Route::middleware(['auth'])->resource('wishlists', \App\Http\Controllers\WishlistController::class)->only(['show']);
 
 
-
-
-
-// Route for the show for wishlists
-Route::get('/wishlists/{wishlist}', [\App\Http\Controllers\WishlistController::class, 'show']);
 
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])
