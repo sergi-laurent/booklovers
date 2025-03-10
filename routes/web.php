@@ -13,7 +13,8 @@ Route::resource('groups',App\Http\Controllers\GroupController::class);
 
 // Private Area -> User Pages = Wishlist and Library
 Route::middleware(['auth'])->resource('wishlists', \App\Http\Controllers\WishlistController::class)->only(['show']);
-Route::middleware(['auth'])->resource('library', \App\Http\Controllers\LibraryController::class)->only(['index']);
+Route::middleware(['auth'])->get('/library', [\App\Http\Controllers\LibraryController::class, 'index'])->name('library.index');
+Route::middleware(['auth'])->post('/library/{book}', [\App\Http\Controllers\LibraryController::class, 'store'])->name('library.store');
 
 
 

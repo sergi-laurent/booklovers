@@ -12,7 +12,7 @@
             </div>
 
             <div class="my-8">
-                <a href=" " class="bg-blue-500 text-blue-50 text-xl uppercase hover:font-semibold p-2 rounded-sm px-4">Add books to your wishlist</a>
+                <a href="{{ route('books.index') }} " class="bg-blue-500 text-blue-50 text-xl uppercase hover:font-semibold p-2 rounded-sm px-4">Add books to your wishlist</a>
             </div>
 
             <div class="my-8">
