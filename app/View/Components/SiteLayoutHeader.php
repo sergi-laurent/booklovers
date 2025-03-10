@@ -25,6 +25,8 @@ class SiteLayoutHeader extends Component
             'Books' => '/books',
             'Groups' => '/groups',
             'Wishlist' => '/wishlists/1',
+            'My Library' => route('library.index')
+
         ];
 
         return view('components.site-layout-header', compact(var_name:'menu'));
