@@ -40,10 +40,12 @@ class GroupController extends Controller
                 'description'=>['string', 'max:300'],
             ]);
         
-        Group::create([
+        $group = Group::create([
             'name'=>$request->name,
             'description'=>$request->description
         ]);
+
+        Auth::user()->groups()->attach($group);
         
         return redirect()->route('groups.index');
     }
@@ -53,7 +55,9 @@ class GroupController extends Controller
      */
     public function show(Group $group)
     {
-        return view('site.groups.show', ['group'=>$group]);
+        
+
+        return view('site.groups.show', ['group'=>$group ]);
     }
 
     /**
