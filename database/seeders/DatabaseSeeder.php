@@ -29,7 +29,7 @@ class DatabaseSeeder extends Seeder
 
         $users = User::factory(count:10)->create();
         $books = Book::factory(count:20)->create();
-        Group::factory(count:5)->create();
+        $groups = Group::factory(count:5)->create();
 
         // Ensure my_user gets a wishlist
         // Chat-gpt prompt -> Why is my manually created user not getting a wishlist?
@@ -64,9 +64,12 @@ class DatabaseSeeder extends Seeder
         $wishlist->books()->attach($books);
        }
 
-       
-
-
+       //Add users to groups
+       foreach($groups as $group){
+        $random_number = random_int(3,8);
+        $users = User::inRandomOrder()->take($random_number)->get();
+        $group->users()->attach($users);
+       }
 
     }
 }

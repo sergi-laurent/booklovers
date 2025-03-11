@@ -54,9 +54,15 @@ class User extends Authenticatable
         return $this->hasOne(Wishlist::class, foreignKey:'user_id');
     }
 
+    // Adding the Many To Many relationship with books
     public function books()
     {
         return $this->belongsToMany(Book::class, 'book_user');
+    }
+
+    public function groups()
+    {
+        return $this->belongsToMany(Group::class, 'group_user');
     }
 
 
