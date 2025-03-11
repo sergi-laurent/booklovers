@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('wishlists', function (Blueprint $table) {
             $table->id();
 
-            $table->foreignId(column:'user_id');
+            $table->foreignId(column:'user_id')->unique();
 
             $table->timestamps();
         });

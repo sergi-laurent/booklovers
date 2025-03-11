@@ -10,6 +10,8 @@ class Wishlist extends Model
     /** @use HasFactory<\Database\Factories\WishlistFactory> */
     use HasFactory;
 
+    protected $guarded = [];
+
     public function user()
     {
         return $this->belongsTo(related:User::class, foreignKey:'user_id');

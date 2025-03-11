@@ -30,9 +30,21 @@ class DatabaseSeeder extends Seeder
         $users = User::factory(count:10)->create();
         $books = Book::factory(count:20)->create();
         Group::factory(count:5)->create();
-        Wishlist::factory(count:10)->create();
 
-        //Add books to users
+        // Ensure my_user gets a wishlist
+        // Chat-gpt prompt -> Why is my manually created user not getting a wishlist?
+        // Chat-gpt recommendation -> manually assign a wishlist to my personal user -> BEFORE the other users
+        Wishlist::factory()->create([
+            'user_id' => $my_user->id,
+        ]);        
+    
+       // Assign a wishlist to each user -> in a One to One relationship
+       // Chat-gpt prompt -> How do i seed the database for a One to One relationship between a user and a wishlist?
+       foreach ($users as $user) {
+            Wishlist::factory()->create(['user_id' => $user->id]);
+        }
+
+       //Add books to users
        foreach($users as $user){
         $random_number = random_int(1,10);
         $books = Book::inRandomOrder()->take($random_number)->get();
