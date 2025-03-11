@@ -35,12 +35,20 @@
                     <p class="text-red-500">Book image HERE</p>
                 </div>
 
-                @if(auth()->user()->books->contains($book->id))
-                    <div class="bg-gray-300 text-white uppercase p-2 mt-4 text-center rounded hover:font-semibold w-full">
-                        <p>You already have this book</p>
-                    </div>
-                    
                 @if(auth()->user())
+                    @if(auth()->user()->books->contains($book->id))
+                        <div class="bg-gray-300 text-white uppercase p-2 mt-4 text-center rounded hover:font-semibold w-full">
+                            <p>You already have this book</p>
+                        </div>
+                        
+                    @else
+                        <form action="{{ route('library.store', $book->id) }}" method="POST">
+                            @csrf
+                            <button type="submit" class="bg-blue-500 text-white uppercase p-2 mt-4 text-center rounded hover:bg-blue-600 hover:font-semibold w-full">
+                                Add to Library
+                            </button>
+                        </form>
+                    @endif
 
                     @if(auth()->user()->wishlist->books->contains($book->id))
                         <div class="bg-gray-300 text-white uppercase p-2 mt-4 text-center rounded hover:font-semibold w-full">
