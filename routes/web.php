@@ -6,16 +6,20 @@ use Livewire\Volt\Volt;
 Route::get('/', [\App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 
-Route::resource('books',App\Http\Controllers\BookController::class);
+Route::resource('books', App\Http\Controllers\BookController::class);
 Route::resource('groups',App\Http\Controllers\GroupController::class);
 
 
 // Private Area -> User Pages = Wishlist and Library
-Route::middleware(['auth'])->get('/library', [\App\Http\Controllers\LibraryController::class, 'index'])->name('library.index');
-Route::middleware(['auth'])->post('/library/{book}', [\App\Http\Controllers\LibraryController::class, 'store'])->name('library.store');
 Route::middleware(['auth'])->group(function(){
     Route::get('/wishlist', [\App\Http\Controllers\WishlistController::class, 'show'])->name('wishlist.show');
     Route::post('/wishlist/{book}', [\App\Http\Controllers\WishlistController::class, 'store'])->name('wishlist.store');
+    
+    Route::get('/library', [\App\Http\Controllers\LibraryController::class, 'index'])->name('library.index');
+    Route::post('/library/{book}', [\App\Http\Controllers\LibraryController::class, 'store'])->name('library.store');
+    
+});
+
 
 
 
