@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use \App\Models\Book;
+use Illuminate\Support\Facades\Auth;
 
 
 class LibraryController extends Controller
@@ -11,14 +12,13 @@ class LibraryController extends Controller
     public function index()
     {
         //$wishlist=Wishlist::where('id',$wishlist)->first();
-        $books_owned=auth()->user()->books;
+        $books_owned=Auth::user()->books;
         return view('site.library.index', ['books_owned'=>$books_owned]);
     }
 
-    //NOT WORKING
     public function store(Request $request, Book $book)
     {
-        $user = auth()->user(); // Get the logged-in user
+        $user = Auth::user(); // Get the logged-in user
 
         // Prevent duplicate entries
         if ($user->books()->where('id', $book->id)->exists()) {
