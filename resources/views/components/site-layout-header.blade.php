@@ -7,11 +7,19 @@
                 @endforeach
             </ul>
             
-            <div class="bg-blue-50 text-blue-500 p-1 rounded-sm px-2">
+            <div>
                 @if(auth()->user() != null)
-                    <a href="">{{ auth()->user()->name }} </a>
+                    <div class="flex justify-center gap-4">
+                        <a href="" class="bg-blue-50 text-blue-500 p-1 rounded-sm px-2 whitespace-nowrap"> {{ auth()->user()->name }} </a>
+                        <form method="POST" action="{{ route('logout') }}" class="w-full">
+                            @csrf
+                            <button type="submit" icon="arrow-right-start-on-rectangle" class="bg-blue-50 text-blue-500 p-1 rounded-sm px-2">
+                                Log Out
+                            </button>
+                        </form>
+                    </div>
                 @else
-                    <a href="{{route('login')}}">Log in</a>
+                    <a href="{{route('login')}}" class="bg-blue-50 text-blue-500 p-1 rounded-sm px-2">Log in</a>
                 @endif
             </div>
         </div>
