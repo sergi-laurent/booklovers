@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use \App\Models\Group;
+use Illuminate\Support\Facades\Auth;
+
 
 class GroupController extends Controller
 {
@@ -12,7 +14,10 @@ class GroupController extends Controller
      */
     public function index()
     {
-        $groups = Group::all();
+        //Chat-gpt prompt after havng errors: I want to allow users to see the groups index as an empty page if they haven't logged in. But show them the groups they are part of if they are logged in
+        $user = Auth::user(); // Get the authenticated user, or null if not logged in
+        $groups = $user ? $user->groups : collect(); // Get user groups or an empty collection
+        //$groups = Group::all();
         return view('site.groups.index', ['groups'=> $groups]);
     }
 

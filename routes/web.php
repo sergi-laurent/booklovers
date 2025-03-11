@@ -7,7 +7,7 @@ Route::get('/', [\App\Http\Controllers\HomeController::class, 'index'])->name('h
 
 
 Route::resource('books', App\Http\Controllers\BookController::class);
-Route::resource('groups',App\Http\Controllers\GroupController::class);
+Route::get('/groups',[\App\Http\Controllers\GroupController::class, 'index'])->name('groups.index');
 
 
 // Private Area -> User Pages = Wishlist and Library
