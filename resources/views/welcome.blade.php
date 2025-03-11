@@ -28,7 +28,7 @@
         </div>
 
         <div>
-            <div class="bg-purple-50 p-4 mb-8 rounded-2xl">
+            <div class="bg-gray-100 h-150 p-4 mb-8 rounded-2xl">
                 <h3 class="font-semibold">Best Sellers</h3>
                 
                 HERE GOES AN IMAGE OF BEST SELLER BOOKS
