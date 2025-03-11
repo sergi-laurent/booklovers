@@ -57,6 +57,15 @@ class DatabaseSeeder extends Seeder
        $my_user->books()->attach($books);
 
 
+       //Add books to wishlists
+       foreach(Wishlist::all() as $wishlist){
+        $random_number = random_int(1,10);
+        $books = Book::inRandomOrder()->take($random_number)->get();
+        $wishlist->books()->attach($books);
+       }
+
+       
+
 
 
     }

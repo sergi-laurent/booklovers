@@ -40,6 +40,21 @@
                         <p>You already have this book</p>
                     </div>
                     
+                @if(auth()->user())
+
+                    @if(auth()->user()->wishlist->books->contains($book->id))
+                        <div class="bg-gray-300 text-white uppercase p-2 mt-4 text-center rounded hover:font-semibold w-full">
+                            <p>You already have this book on your wishlist</p>
+                        </div>
+                        
+                    @else
+                        <form action="{{ route('wishlist.store', $book->id) }}" method="POST">
+                            @csrf
+                            <button type="submit" class="bg-green-700 text-white uppercase p-2 mt-2 text-center rounded hover:bg-blue-600 hover:font-semibold w-full">
+                                Add to Wishlist
+                            </button>
+                        </form>
+                    @endif
                 @else
                     <form action="{{ route('library.store', $book->id) }}" method="POST">
                         @csrf
@@ -47,7 +62,14 @@
                             Add to Library
                         </button>
                     </form>
+                    <form action="{{ route('wishlist.store', $book->id) }}" method="POST">
+                        @csrf
+                        <button type="submit" class="bg-green-700 text-white uppercase p-2 mt-2 text-center rounded hover:bg-blue-600 hover:font-semibold w-full">
+                            Add to Wishlist
+                        </button>
+                    </form>
                 @endif
+
             </li>
         @endforeach
     </ul>

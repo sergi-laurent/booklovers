@@ -24,7 +24,7 @@ class SiteLayoutHeader extends Component
         $menu = [
             'Books' => route('books.index'),
             'Groups' => route('groups.index'),
-            'Wishlist' => '/wishlists/1',
+            'Wishlist' => route('wishlist.show'),
             'My Library' => route('library.index')
 
         ];
