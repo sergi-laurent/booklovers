@@ -12,12 +12,10 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('book_wishlist', function (Blueprint $table) {
-            $table->id();
             
             $table->foreignId(column:'book_id');
             $table->foreignId(column:'wishlist_id');
 
-            $table->timestamps();
         });
     }
 
