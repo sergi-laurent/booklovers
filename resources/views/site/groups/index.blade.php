@@ -8,25 +8,13 @@
         </div>
     @endif
 
-    <div class="bg-gray-300 px-8 py-4 rounded-4xl">
-        <div class="flex">
-            <a href="{{ route('groups.joinGroupForm') }}" class="w-full text-center text-black uppercase p-2 mb-4 hover:font-semibold rounded-sm">-> Join a Group</a> 
-        </div>
-    
-        <div class="flex">
-            <a href="{{route('groups.create')}}" class="w-full text-center bg-purple-600 text-purple-50 uppercase p-2 hover:font-semibold rounded-2xl">+ Create New Group</a> 
-        </div>
-    </div>
-
-    
-
     @if(auth()->user())
         @if($groups->isEmpty())
             <div class="text-gray-500 font-bold text-2xl text-center">
             You don't have any groups yet
             </div>
         @else
-            <ul class="grid grid-cols-1 gap-4 mt-6">
+            <ul class="grid grid-cols-1 gap-4">
                 @if($groups->isEmpty())
                 You don't have any groups yet
                 @else
@@ -52,5 +40,16 @@
             </ul>
         @endif
     @endif
+
+    <div class="bg-gray-100 px-8 py-4 rounded-4xl max-w-lg mx-auto shadow-md mt-6 p-6">
+        <div class="flex">
+            <a href="{{ route('groups.joinGroupForm') }}" class="w-full text-center text-purple-500 uppercase p-2 mb-4 hover:font-semibold rounded-sm">-> Join a Group</a> 
+        </div>
     
+        <div class="flex">
+            <a href="{{route('groups.create')}}" class="w-full text-center bg-purple-600 text-purple-50 uppercase p-2 hover:font-semibold rounded-2xl">+ Create New Group</a> 
+        </div>
+    </div>
+
+
 </x-site-layout>
