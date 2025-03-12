@@ -12,9 +12,14 @@ class WishlistController extends Controller
     public function show()
     {
 
-        $wishlist_books = Auth::user()->wishlist->books;
+        $wishlist = Auth::user()->wishlist->load('books'); // Eager load books
+        $wishlist_books = $wishlist->books;
+        $book_count = $wishlist_books->count(); // Count without extra query
 
-        return view('site.wishlists.show', ['wishlist_books'=>$wishlist_books]);
+        return view('site.wishlists.show', [
+            'wishlist_books' => $wishlist_books,
+            'book_count' => $book_count
+        ]);
     }
 
     public function store(Book $book)
