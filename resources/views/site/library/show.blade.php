@@ -9,11 +9,27 @@
         <div class="flex justify-end pl-6">
             <a href="{{ route('books.index') }}" class="text-center bg-purple-500 text-purple-50 uppercase p-2 hover:font-semibold rounded-4xl">+ Add Book</a> 
         </div>
+
+        <!--Message for Feedback to user after adding a New User--> 
+        <div class="my-4">
+            @if (session('success'))
+                <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative">
+                    {{ session('success') }}
+                </div>
+            @endif
+
+            @if (session('error'))
+                <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative">
+                    {{ session('error') }}
+                </div>
+            @endif
+        </div>
+        
     </div>
 
     <ul class="grid grid-cols-3 gap-8 mt-4">
         @foreach($books_owned as $book)
-            <li class="p-4 bg-gray-100 hover:bg-blue-50 flex flex-col justify-between h-full rounded-xl">
+            <li class="p-4 bg-gray-100 hover:bg-blue-50 flex flex-col justify-between h-full rounded-xl relative">
                 <a href="{{route('books.show', $book)}}">
                     <h3 class="font-bold text-xl">{{$book->title}}</h3>
                     <div class="flex gap-1">
@@ -31,12 +47,15 @@
 
                 <a href="{{ $book->amazon_link }}" class="text-center bg-purple-500 text-purple-50 uppercase p-2 mt-2 hover:font-semibold rounded-4xl">Buy on Amazon</a>      
 
-
-                <form action="to the book destroy" method="post">
-                    @method('DELETE')
-                    @csrf
-                    <button type="submit" class="text-center bg-purple-50 text-purple-500 uppercase p-2 mt-2 hover:font-semibold rounded-4xl w-full">Delete Book from library</button>
-                </form>
+                @if(auth()->user()->id == $user->id)
+                    <form action="{{ route('library.destroy', $book) }}" method="post">
+                        @method('DELETE')
+                        @csrf
+                        <button type="submit" class="text-center bg-purple-50 text-purple-500 uppercase p-2 mt-2 hover:font-semibold rounded-4xl w-full">
+                            Delete Book from library
+                        </button>
+                    </form>
+                @endif
             </li>
         @endforeach        
     </ul>

@@ -32,4 +32,13 @@ class LibraryController extends Controller
 
         return redirect()->back()->with('success', 'Book added to your library!');
     }
+
+    public function destroy(Request $request, Book $book)
+    {
+        $request->user()->books()->detach($book->id); // Detach the book from the library
+        
+        
+        return redirect()->route('library.show', Auth::user())->with('success', 'Book removed from library.');
+    }
+
 }

@@ -19,6 +19,8 @@ Route::middleware(['auth'])->group(function(){
 
     Route::get('/library/{user}', [\App\Http\Controllers\LibraryController::class, 'show'])->name('library.show');
     Route::post('/library/{book}', [\App\Http\Controllers\LibraryController::class, 'store'])->name('library.store');
+    Route::delete('/library/{book}', [\App\Http\Controllers\LibraryController::class, 'destroy'])->name('library.destroy');
+
 
     Route::get('/groups/create',[\App\Http\Controllers\GroupController::class, 'create'])->name('groups.create');
     
