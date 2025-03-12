@@ -63,7 +63,7 @@
 
                     @if(auth()->user()->wishlist->books->contains($book->id))
                         <div class="bg-gray-300 text-white uppercase p-2 mt-2 text-center rounded hover:font-semibold w-full">
-                            <p>You already have this book on your wishlist</p>
+                            <p>This book is on your wishlist</p>
                         </div>
                         
                     @else
