@@ -9,7 +9,6 @@ Route::get('/', [\App\Http\Controllers\HomeController::class, 'index'])->name('h
 Route::resource('books', App\Http\Controllers\BookController::class);
 //Route::resource('groups',App\Http\Controllers\GroupController::class);
 Route::get('/groups',[\App\Http\Controllers\GroupController::class, 'index'])->name('groups.index');
-Route::get('/groups/create',[\App\Http\Controllers\GroupController::class, 'create'])->name('groups.create');
 
 
 // Private Area -> User Pages = Wishlist and Library
@@ -20,7 +19,15 @@ Route::middleware(['auth'])->group(function(){
     Route::get('/library', [\App\Http\Controllers\LibraryController::class, 'index'])->name('library.index');
     Route::post('/library/{book}', [\App\Http\Controllers\LibraryController::class, 'store'])->name('library.store');
 
+    Route::get('/groups/create',[\App\Http\Controllers\GroupController::class, 'create'])->name('groups.create');
+    Route::get('/groups/{group}',[\App\Http\Controllers\GroupController::class, 'show'])->name('groups.show');
+
     Route::post('/groups',[\App\Http\Controllers\GroupController::class, 'store'])->name('groups.store');
+    Route::get('/groups/{group}/edit',[\App\Http\Controllers\GroupController::class, 'edit'])->name('groups.edit');
+    Route::put('/groups/{group}',[\App\Http\Controllers\GroupController::class, 'update'])->name('groups.update');
+    Route::delete('/groups/{group}',[\App\Http\Controllers\GroupController::class, 'destroy'])->name('groups.destroy');
+
+});
 
 
 
