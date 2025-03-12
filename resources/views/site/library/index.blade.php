@@ -3,7 +3,7 @@
     <div class="px-4 mt-20">
         <div class="flex">
             <h3 class="text-gray-600 text-3xl font-bold">{{ auth()->user()->name }}'s' Library</h3>
-            <h3 class="text-gray-500 text-3xl font-semibold mx-2">- {{auth()->user()->books->count()}} Books</h3>
+            <h3 class="text-gray-500 text-3xl font-semibold mx-2">- {{$books_count}} Books</h3>
         </div>
 
         <div class="flex justify-end pl-6">

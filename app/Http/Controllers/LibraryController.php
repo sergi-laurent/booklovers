@@ -13,7 +13,8 @@ class LibraryController extends Controller
     {
         //$wishlist=Wishlist::where('id',$wishlist)->first();
         $books_owned=Auth::user()->books;
-        return view('site.library.index', ['books_owned'=>$books_owned]);
+        $books_count = $books_owned->count();
+        return view('site.library.index', ['books_owned'=>$books_owned, 'books_count'=>$books_count]);
     }
 
     public function store(Request $request, Book $book)
