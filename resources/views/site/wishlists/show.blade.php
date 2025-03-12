@@ -1,9 +1,17 @@
 <x-site-layout>
     
+    <div class="px-4 mt-20">
+        <div class="flex">
+            <h3 class="text-gray-600 text-3xl font-bold">{{ auth()->user()->name }}'s' Wishlist</h3>
+            <h3 class="text-gray-500 text-3xl font-semibold mx-2">- {{auth()->user()->wishlist->books()->count()}} Books</h3>
+        </div>
 
-    <p class="font-bold text-2xl">Your Wishlist</p>
+        <div class="flex justify-end pl-6">
+            <a href="{{ route('books.index') }}" class="text-center bg-purple-500 text-purple-50 uppercase p-2 hover:font-semibold rounded-4xl">+ Add Book</a> 
+        </div>
+    </div>
 
-    <ul class="grid grid-cols-1 gap-8 mt-12">
+    <ul class="grid grid-cols-1 gap-8 mt-2">
         @foreach($wishlist_books as $book)
             <li class="p-4 bg-gray-100 hover:bg-blue-50 flex h-full rounded-xl relative items-center">
 
