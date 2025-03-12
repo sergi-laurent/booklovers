@@ -40,4 +40,20 @@ class WishlistController extends Controller
 
         return redirect()->back()->with('success', 'Book added to your wishlist!');
     }
+
+    /* Chat-GPT prompt to adapt a destroy to a Many to Many Relationship
+        How do I create the destroy function to remove a book from the wishlist 
+        (wishlist and books have a many to many relationship)
+    */
+
+    public function destroy(Request $request, Book $book)
+    {
+        $wishlist = $request->user()->wishlist; // Get the user's wishlist
+
+        if ($wishlist) {
+            $wishlist->books()->detach($book->id); // Detach the book from the wishlist
+        }
+
+        return redirect()->route('wishlist.show', Auth::user())->with('success', 'Book removed from wishlist.');
+    }
 }

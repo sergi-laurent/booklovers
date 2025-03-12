@@ -15,7 +15,8 @@ Route::get('/groups',[\App\Http\Controllers\GroupController::class, 'index'])->n
 Route::middleware(['auth'])->group(function(){
     Route::get('/wishlist/{user}', [\App\Http\Controllers\WishlistController::class, 'show'])->name('wishlist.show');
     Route::post('/wishlist/{book}', [\App\Http\Controllers\WishlistController::class, 'store'])->name('wishlist.store');
-    
+    Route::delete('/wishlist/{book}', [\App\Http\Controllers\WishlistController::class, 'destroy'])->name('wishlist.destroy');
+
     Route::get('/library/{user}', [\App\Http\Controllers\LibraryController::class, 'show'])->name('library.show');
     Route::post('/library/{book}', [\App\Http\Controllers\LibraryController::class, 'store'])->name('library.store');
 
