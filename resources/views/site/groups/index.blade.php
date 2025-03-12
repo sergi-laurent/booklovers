@@ -2,9 +2,11 @@
 
     <p class='text-center mb-6 text-red-500'>Here goes an illustration or something</p>
 
-    <div class="flex justify-end">
-		<a href="{{route('wishlist.show', Auth::user())}}" class="text-center bg-purple-500 text-purple-50 uppercase p-2 mb-4 hover:font-semibold rounded-xl">Your Wishlist</a> 
-	</div>
+    @if(Auth::user())
+        <div class="flex justify-end">
+            <a href="{{route('wishlist.show', Auth::user())}}" class="text-center bg-purple-500 text-purple-50 uppercase p-2 mb-4 hover:font-semibold rounded-xl">Your Wishlist</a> 
+        </div>
+    @endif
 
     <div class="bg-gray-300 px-8 py-4 rounded-4xl">
         <div class="flex">

@@ -26,9 +26,6 @@ class SiteLayoutHeader extends Component
         $menu = [
             'Books' => route('books.index'),
             'Groups' => route('groups.index'),
-            'Wishlist' => route('wishlist.show', Auth::user()),
-            'My Library' => route('library.index')
-
         ];
 
         return view('components.site-layout-header', compact(var_name:'menu'));

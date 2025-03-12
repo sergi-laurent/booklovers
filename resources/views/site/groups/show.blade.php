@@ -45,7 +45,7 @@
                     <p class="font-semibold text-xl">{{$user->name}}</p>
                     <div class="text-right flex justify-end gap-4 mt-2">
                         <a href="{{route('wishlist.show', $user)}}" class="bg-purple-100 text-purple-500 uppercase p-2 px-4 hover:font-semibold  rounded-2xl">Wishlist</a>
-                        <a href="{{route('library.index')}}" class="bg-blue-100 text-blue-500 uppercase p-2 px-4  hover:font-semibold rounded-2xl">Library</a>
+                        <a href="{{route('library.show', $user)}}" class="bg-blue-100 text-blue-500 uppercase p-2 px-4  hover:font-semibold rounded-2xl">Library</a>
                     </div>
                 </div>    
                 
