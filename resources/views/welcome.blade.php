@@ -19,7 +19,7 @@
 
             
             
-            <p class="font-bold text-xl text-gray-600 mt-4">This should be a scrollable Landing Page with multiple CTA's<p>
+            <p class="font-bold text-xl text-red-600 mt-4">This should be a scrollable Landing Page with multiple CTA's<p>
 
 
 
