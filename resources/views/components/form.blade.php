@@ -1,4 +1,4 @@
-<div class="max-w-lg mx-auto bg-white shadow-md rounded p-6">
+<div class="max-w-lg mx-auto bg-white shadow-md rounded-xl p-6">
     <form action="{{$action}}" method="post">
 
         @csrf
