@@ -33,11 +33,10 @@
                     <!-- BOOK DETAILS (Right) -->
                     <div class="flex flex-col justify-center"> 
                         <h3 class="font-bold text-2xl">{{ $book->title }}</h3>
-                        <div class="flex gap-1">
-                            <p class="line-clamp-2">By</p>
-                            <p class="line-clamp-2 font-semibold">{{ $book->author }}</p>
-                        </div>      
+                        <p class="text-gray-600">By <span class="font-semibold">{{ $book->author }}</span></p>
                     </div>
+                    <a href="{{ $book->amazon_link }}" class="text-center bg-purple-500 text-purple-50 uppercase p-2 hover:font-semibold rounded-4xl">Buy on Amazon</a>      
+
                 </a>
             </li>
         @endforeach        

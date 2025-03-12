@@ -29,10 +29,13 @@
                     <p class="text-red-500 h-50">Book image HERE</p>
                 </div>
 
+                <a href="{{ $book->amazon_link }}" class="text-center bg-purple-500 text-purple-50 uppercase p-2 mt-2 hover:font-semibold rounded-4xl">Buy on Amazon</a>      
+
+
                 <form action="to the book destroy" method="post">
                     @method('DELETE')
                     @csrf
-                    <button type="submit" class="bg-red-100 text-red-500 uppercase p-2 mt-2 hover:font-semibold rounded-sm w-full">Delete Book from library</button>
+                    <button type="submit" class="text-center bg-purple-50 text-purple-500 uppercase p-2 mt-2 hover:font-semibold rounded-4xl w-full">Delete Book from library</button>
                 </form>
             </li>
         @endforeach        

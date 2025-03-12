@@ -28,7 +28,7 @@ class DatabaseSeeder extends Seeder
             ]);
 
         $users = User::factory(count:10)->create();
-        $books = Book::factory(count:20)->create();
+        $books = Book::factory(count:50)->create();
         $groups = Group::factory(count:5)->create();
 
         // Ensure my_user gets a wishlist
