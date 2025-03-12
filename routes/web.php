@@ -24,6 +24,8 @@ Route::middleware(['auth'])->group(function(){
     Route::get('/groups/{group}/add-member', [\App\Http\Controllers\GroupMemberController::class, 'addMemberForm'])->name('groups.addMemberForm');
     Route::post('/groups/{group}/add-member', [\App\Http\Controllers\GroupMemberController::class, 'addMember'])->name('groups.addMember');
 
+    Route::get('/groups/join-group', [\App\Http\Controllers\GroupMemberController::class, 'joinGroupForm'])->name('groups.joinGroupForm');
+    Route::post('/groups/join-group', [\App\Http\Controllers\GroupMemberController::class, 'joinGroup'])->name('groups.joinGroup');
     Route::get('/groups/{group}',[\App\Http\Controllers\GroupController::class, 'show'])->name('groups.show');
 
     Route::post('/groups',[\App\Http\Controllers\GroupController::class, 'store'])->name('groups.store');
@@ -31,6 +33,8 @@ Route::middleware(['auth'])->group(function(){
     Route::put('/groups/{group}',[\App\Http\Controllers\GroupController::class, 'update'])->name('groups.update');
     Route::delete('/groups/{group}',[\App\Http\Controllers\GroupController::class, 'destroy'])->name('groups.destroy');
 
+
+    
 });
 
 

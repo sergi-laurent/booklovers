@@ -8,6 +8,10 @@
 
     <div class="bg-gray-300 px-8 py-4 rounded-4xl">
         <div class="flex">
+            <a href="{{ route('groups.joinGroupForm') }}" class="w-full text-center text-black uppercase p-2 mb-4 hover:font-semibold rounded-sm">-> Join a Group</a> 
+        </div>
+    
+        <div class="flex">
             <a href="{{route('groups.create')}}" class="w-full text-center bg-purple-600 text-purple-50 uppercase p-2 hover:font-semibold rounded-2xl">+ Create New Group</a> 
         </div>
     </div>

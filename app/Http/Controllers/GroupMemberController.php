@@ -53,4 +53,29 @@ class GroupMemberController extends Controller
         return redirect()->route('groups.show', $group)->with('success', $user->name . ' added successfully!');
     }
 
+    public function joinGroupForm()
+    {
+        return view('site.groups.joingroup');
+    }
+
+    public function joinGroup(Request $request, Group $group)
+    {
+ 
+        $request->validate([
+            'code'=>['required', 'string', 'exists:groups,code'],
+        ]);
+
+        $user = Auth::user();
+        $group = Group::where('code', $request->code)->first();
+
+        // Prevent duplicate members
+        if ($group->users()->where('user_id', $user->id)->exists()) {
+            return redirect()->route('groups.show', $group)->with('error', 'You are already a member of this group.');
+        }
+
+        // Add user to the group
+        $group->users()->attach($user);
+
+        return redirect()->route('groups.show', $group)->with('success', 'You joined the group successfully!');
+    }
 }
