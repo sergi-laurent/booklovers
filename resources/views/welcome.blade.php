@@ -8,16 +8,16 @@
             <p class="font-bold text-3xl text-gray-600 mt-4">Create your First Group Now!<p>
 
             <div class="my-8">
-                <a href="{{route('groups.create')}}" class="bg-blue-500 text-blue-50 text-xl uppercase hover:font-semibold p-2 rounded-sm px-4">Create group</a>
+                <a href="{{route('groups.create')}}" class="bg-blue-500 text-blue-50 text-xl uppercase hover:font-semibold p-2 rounded-sm px-4">Create a group</a>
             </div>
 
-            <div class="my-8">
-                <a href="{{ route('books.index') }} " class="bg-blue-500 text-blue-50 text-xl uppercase hover:font-semibold p-2 rounded-sm px-4">Add books to your wishlist</a>
-            </div>
+            <p class="font-bold text-3xl text-gray-600 mt-4">Log In if you already have a group<p>
 
             <div class="my-8">
-                <a href=" " class="bg-blue-500 text-blue-50 text-xl uppercase hover:font-semibold p-2 rounded-sm px-4">Add the books you already have</a>
+                <a href="{{route('login')}}" class="bg-blue-500 text-blue-50 text-xl uppercase hover:font-semibold p-2 rounded-sm px-4">Login</a>
             </div>
+
+            
             
             <p class="font-bold text-xl text-gray-600 mt-4">This should be a scrollable Landing Page with multiple CTA's<p>
 
