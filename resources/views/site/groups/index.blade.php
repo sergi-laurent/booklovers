@@ -2,8 +2,8 @@
 
     <p class='text-center mb-6 text-red-500'>Here goes an illustration or something</p>
 
-    <div class="flex">
-		<a href="{{route('groups.create')}}" class="w-full text-center bg-blue-700 text-purple-50 uppercase p-2 hover:font-semibold rounded-sm">Create New Group</a> 
+    <div class="flex justify-end">
+		<a href="{{route('wishlist.show')}}" class="text-center bg-purple-500 text-purple-50 uppercase p-2 mb-4 hover:font-semibold rounded-xl">Your Wishlist</a> 
 	</div>
 
     <div class="bg-gray-300 px-8 py-4 rounded-4xl">
