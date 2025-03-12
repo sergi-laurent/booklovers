@@ -16,10 +16,14 @@ class GroupFactory extends Factory
      */
     public function definition(): array
     {
+        /*Chat-gpt prompt: I want to create random codes for each group. 
+        How do I adapt the GroupFactory to create random 6 digit codes, for example 98F81X:*/
+
         return [
             
             'name'=>fake()->city(),
             'description'=>fake()->sentence(),
+            'code' => strtoupper(fake()->bothify('?#?#?#')), // Generates a mix of numbers and uppercase letters
         ];
     }
 }
