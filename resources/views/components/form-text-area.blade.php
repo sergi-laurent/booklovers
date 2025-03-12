@@ -1,5 +1,5 @@
 <div class="mb-8">
-    <label for="{{$name}}" class="font-semibold text-xl">{{$label}}</label>
+    <label for="{{$name}}" class="block font-medium">{{$label}}</label>
     <textarea 
         name="{{$name}}" 
         rows="{{$rows}}" 

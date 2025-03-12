@@ -1,18 +1,20 @@
-<form action="{{$action}}" method="post" class="border-2 border-blue-500 p-2">
+<div class="max-w-lg mx-auto bg-white shadow-md rounded p-6">
+    <form action="{{$action}}" method="post">
 
-    @csrf
+        @csrf
 
-    @if ($method == 'put')
-        @method("put")
-    @endif
+        @if ($method == 'put')
+            @method("put")
+        @endif
 
-    <div class="font-bold text-2xl text-blue-500 uppercase mb-8 mt-4">{{$title}}</div>
+        <div class="text-xl font-bold mb-4">{{$title}}</div>
 
-    {{$slot}}
+        {{$slot}}
 
-    <div class="flex justify-end gap-4">
-        <a href="{{$cancelurl}}" class="bg-blue-100 text-blue-500 uppercase p-2 hover:font-semibold rounded-sm">Cancel</a>
-        <button type="submit" class="bg-blue-500 text-blue-50 uppercase p-2 hover:font-semibold rounded-sm">{{$submittext}}</button>
-    </div>
+        <div class="flex justify-end gap-4">
+            <a href="{{$cancelurl}}" class="bg-blue-100 text-blue-500 uppercase p-2 hover:font-semibold rounded-sm">Cancel</a>
+            <button type="submit" class="bg-blue-500 text-blue-50 uppercase p-2 hover:font-semibold rounded-sm">{{$submittext}}</button>
+        </div>
 
-</form>
+    </form>
+</div>
