@@ -13,7 +13,7 @@ Route::get('/groups',[\App\Http\Controllers\GroupController::class, 'index'])->n
 
 // Private Area -> User Pages = Wishlist and Library and Group functionalities
 Route::middleware(['auth'])->group(function(){
-    Route::get('/wishlist', [\App\Http\Controllers\WishlistController::class, 'show'])->name('wishlist.show');
+    Route::get('/wishlist/{user}', [\App\Http\Controllers\WishlistController::class, 'show'])->name('wishlist.show');
     Route::post('/wishlist/{book}', [\App\Http\Controllers\WishlistController::class, 'store'])->name('wishlist.store');
     
     Route::get('/library', [\App\Http\Controllers\LibraryController::class, 'index'])->name('library.index');

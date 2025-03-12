@@ -2,7 +2,7 @@
     
     <div class="px-4 mt-20">
         <div class="flex">
-            <h3 class="text-gray-600 text-3xl font-bold">{{ auth()->user()->name }}'s' Wishlist</h3>
+            <h3 class="text-gray-600 text-3xl font-bold">{{ $user->name }}'s' Wishlist</h3>
             <h3 class="text-gray-500 text-3xl font-semibold mx-2">- {{$book_count}} Books</h3>
         </div>
 

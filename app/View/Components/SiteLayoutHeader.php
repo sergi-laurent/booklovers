@@ -4,7 +4,9 @@ namespace App\View\Components;
 
 use Closure;
 use Illuminate\Contracts\View\View;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\View\Component;
+
 
 class SiteLayoutHeader extends Component
 {
@@ -24,7 +26,7 @@ class SiteLayoutHeader extends Component
         $menu = [
             'Books' => route('books.index'),
             'Groups' => route('groups.index'),
-            'Wishlist' => route('wishlist.show'),
+            'Wishlist' => route('wishlist.show', Auth::user()),
             'My Library' => route('library.index')
 
         ];
