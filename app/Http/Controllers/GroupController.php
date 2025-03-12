@@ -16,7 +16,7 @@ class GroupController extends Controller
     {
         //Chat-gpt prompt after havng errors: I want to allow users to see the groups index as an empty page if they haven't logged in. But show them the groups they are part of if they are logged in
         $user = Auth::user(); // Get the authenticated user, or null if not logged in
-        $groups = $user ? $user->groups : collect(); // Get user groups or an empty collection
+        $groups = $user ? $user->groups()->with('users')->get() : collect(); // Get user groups or an empty collection
         //$groups = Group::all();
         return view('site.groups.index', ['groups'=> $groups]);
     }
