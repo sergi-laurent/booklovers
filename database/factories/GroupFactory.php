@@ -22,7 +22,6 @@ class GroupFactory extends Factory
         return [
             
             'name'=>fake()->city(),
-            'description'=>fake()->sentence(),
             'code' => strtoupper(fake()->bothify('?#?#?#')), // Generates a mix of numbers and uppercase letters
         ];
     }
