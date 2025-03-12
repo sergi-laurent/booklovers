@@ -11,7 +11,7 @@ Route::resource('books', App\Http\Controllers\BookController::class);
 Route::get('/groups',[\App\Http\Controllers\GroupController::class, 'index'])->name('groups.index');
 
 
-// Private Area -> User Pages = Wishlist and Library
+// Private Area -> User Pages = Wishlist and Library and Group functionalities
 Route::middleware(['auth'])->group(function(){
     Route::get('/wishlist', [\App\Http\Controllers\WishlistController::class, 'show'])->name('wishlist.show');
     Route::post('/wishlist/{book}', [\App\Http\Controllers\WishlistController::class, 'store'])->name('wishlist.store');
@@ -20,6 +20,10 @@ Route::middleware(['auth'])->group(function(){
     Route::post('/library/{book}', [\App\Http\Controllers\LibraryController::class, 'store'])->name('library.store');
 
     Route::get('/groups/create',[\App\Http\Controllers\GroupController::class, 'create'])->name('groups.create');
+    
+    Route::get('/groups/{group}/add-member', [\App\Http\Controllers\GroupMemberController::class, 'addMemberForm'])->name('groups.addMemberForm');
+    Route::post('/groups/{group}/add-member', [\App\Http\Controllers\GroupMemberController::class, 'addMember'])->name('groups.addMember');
+
     Route::get('/groups/{group}',[\App\Http\Controllers\GroupController::class, 'show'])->name('groups.show');
 
     Route::post('/groups',[\App\Http\Controllers\GroupController::class, 'store'])->name('groups.store');
