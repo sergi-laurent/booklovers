@@ -1,7 +1,7 @@
 <x-site-layout>
 
-    <div class="bg-gray-100 h-20 w-50 p-4 mb-8 rounded-2xl flex justify-center items-center mx-auto">
-        <h2 class="font-bold">SECRET BOOKS</h2>
+    <div class="bg-gray-100 h-16 w-64 p-4 mb-8 rounded-2xl flex justify-center items-center mx-auto">
+        <h2 class="font-bold text-xl">SECRET BOOKS</h2>
     </div>
 
     <div class="bg-gray-100 m-auto p-4 rounded-2xl justify-center items-center mx-auto flex flex-col">
