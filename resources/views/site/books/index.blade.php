@@ -1,18 +1,6 @@
 <x-site-layout>
 
-    <!--Sending Messages -->
-    @if (session()->has('message'))
-        <div class="bg-red-50 text-red-500 p-3 rounded-md mb-4">
-            {{ session('message') }}
-        </div>
-    @endif
-
-    @if (session()->has('success'))
-        <div class="bg-green-50 text-green-500 p-3 rounded-md mb-4">
-            {{ session('success') }}
-        </div>
-    @endif
-
+    
 
     <div class="px-4 mt-20">
         <div class="flex">
@@ -22,9 +10,14 @@
 
         <div class="flex justify-end pl-6">
             <a href="{{route('books.create')}}" class="text-center bg-purple-500 text-purple-50 uppercase p-2 hover:font-semibold rounded-4xl">Create Book</a> 
-        </div>
+        </div> 
     </div>
 
+    <!--Message for Feedback--> 
+    <div class="my-4">
+        <x-feedback-message type="success" />
+        <x-feedback-message type="error" />
+    </div>
 
 
 

@@ -10,22 +10,14 @@
         <div class="flex justify-end pl-6">
             <a href="{{route('admin.books.create')}}" class="text-center bg-purple-500 text-purple-50 uppercase p-2 hover:font-semibold rounded-4xl">Create Book</a> 
         </div>
-
-        <!--Message for Feedback to user after adding a New User--> 
-        <div class="my-4">
-            @if (session('success'))
-                <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative">
-                    {{ session('success') }}
-                </div>
-            @endif
-
-            @if (session('error'))
-                <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative">
-                    {{ session('error') }}
-                </div>
-            @endif
-        </div>
     </div>
+
+    <!--Message for Feedback--> 
+    <div class="my-4">
+        <x-feedback-message type="success" />
+        <x-feedback-message type="error" />
+    </div>
+
 
     
 
