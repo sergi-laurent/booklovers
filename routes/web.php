@@ -5,9 +5,18 @@ use Livewire\Volt\Volt;
 
 Route::get('/', [\App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+// Create and store routes go first than the show because if I have the show route first, 
+// then the route for create will be expecting a parameter
+Route::middleware(['auth'])->group(function(){
+    Route::get('/books/create', [\App\Http\Controllers\BookController::class, 'create'])->name('books.create');
+    Route::post('/books', [\App\Http\Controllers\BookController::class, 'store'])->name('books.store');
+});
 
-Route::resource('books', App\Http\Controllers\BookController::class);
-//Route::resource('groups',App\Http\Controllers\GroupController::class);
+Route::get('/books', [\App\Http\Controllers\BookController::class, 'index'])->name('books.index');
+Route::get('/books/{book}', [\App\Http\Controllers\BookController::class, 'show'])->name('books.show');
+
+
+
 Route::get('/groups',[\App\Http\Controllers\GroupController::class, 'index'])->name('groups.index');
 
 
@@ -40,6 +49,7 @@ Route::middleware(['auth'])->group(function(){
 
 
     
+    Route::resource('books', App\Http\Controllers\Admin\BookController::class);
 });
 
 

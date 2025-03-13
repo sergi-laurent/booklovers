@@ -1,10 +1,10 @@
 <x-site-layout>
 
     <x-form 
-        :action="route('books.update', $book)" 
+        :action="route('admin.books.update', $book)" 
         method="put" 
         title='Update Book' 
-        :cancelurl="route('books.show', $book)" 
+        :cancelurl="route('admin.books.show', $book)" 
         submittext="Update Book">
 
         <x-form-input name='title' label='Book title' placeholder='Write the title here' :value='$book->title'/>
