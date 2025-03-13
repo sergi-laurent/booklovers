@@ -53,6 +53,12 @@ class GroupController extends Controller
      */
     public function show(Group $group)
     {
+        if (
+            !Auth::user()->is_admin && // Not an admin
+            !Auth::user()->groups->pluck('id')->contains($group->id) // User is not in the group
+            ) {
+            abort(401); // Unauthorized
+        }
 
         return view('site.groups.show', ['group'=>$group ]);
     }
