@@ -28,11 +28,14 @@
         @endif
     @endif
 
-    <div class="bg-gray-100 px-8 py-4 rounded-4xl max-w-lg mx-auto shadow-md mt-6 p-6">
-        
-        <div class="flex">
-            <a href="{{route('groups.create')}}" class="w-full text-center bg-purple-600 text-purple-50 uppercase p-2 hover:font-semibold rounded-2xl">+ Create New Group</a> 
-        </div>
+    <div class="bg-gray-100 px-8 py-6 rounded-xl max-w-lg mx-auto shadow-md mt-6">
+
+        <!-- Create a New Group Button -->
+        <a href="{{ route('groups.create') }}" 
+           class="bg-purple-600 text-white text-2xl font-semibold uppercase rounded-xl py-4 px-6 block text-center shadow-lg hover:bg-purple-700 transition">
+           ✨ Create New Group
+        </a>
+    
     </div>
 
 

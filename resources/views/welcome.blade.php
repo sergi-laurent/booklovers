@@ -10,7 +10,7 @@
                 The Secret Santa for Book Lovers allows you to organize your gift exchange online, quickly and for free.
             </p>
 
-            <!-- 🚀 Optimized CTA Section -->
+            <!-- Optimized CTA Section -->
             <div class="mt-10">
                 <p class="text-lg text-gray-700 mb-4">Join thousands of book lovers making gifting magical!</p>
                 

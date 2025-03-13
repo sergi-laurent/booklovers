@@ -32,15 +32,20 @@
         @endif
     @endif
 
-    <div class="bg-gray-100 px-8 py-4 rounded-4xl max-w-lg mx-auto shadow-md mt-6 p-6">
-        <div class="flex">
-            <a href="{{ route('groups.joinGroupForm') }}" class="w-full text-center text-purple-500 uppercase p-2 mb-4 hover:font-semibold rounded-sm">-> Join a Group</a> 
-        </div>
+    <div class="bg-gray-100 px-8 py-6 rounded-xl max-w-lg mx-auto shadow-md mt-6">
     
-        <div class="flex">
-            <a href="{{route('groups.create')}}" class="w-full text-center bg-purple-600 text-purple-50 uppercase p-2 hover:font-semibold rounded-2xl">+ Create New Group</a> 
-        </div>
+        <!-- Join a Group Button -->
+        <a href="{{ route('groups.joinGroupForm') }}" 
+           class="bg-gray-200 text-gray-800 text-lg font-semibold rounded-xl py-3 px-6 block text-center shadow-md hover:bg-gray-300 transition mb-4">
+           ➡️ Join a Group
+        </a> 
+    
+        <!-- Create a New Group Button -->
+        <a href="{{ route('groups.create') }}" 
+           class="bg-purple-600 text-white text-2xl font-semibold uppercase rounded-xl py-4 px-6 block text-center shadow-lg hover:bg-purple-700 transition">
+           ✨ Create New Group
+        </a>
+    
     </div>
-
 
 </x-site-layout>
