@@ -37,12 +37,10 @@ class GroupController extends Controller
         $request->validate(
             [
                 'name'=>['required', 'string', 'max:100'],
-                'description'=>['string', 'max:300'],
             ]);
         
         $group = Group::create([
             'name'=>$request->name,
-            'description'=>$request->description
         ]);
 
         Auth::user()->groups()->attach($group);
@@ -55,7 +53,6 @@ class GroupController extends Controller
      */
     public function show(Group $group)
     {
-        
 
         return view('site.groups.show', ['group'=>$group ]);
     }
@@ -75,12 +72,10 @@ class GroupController extends Controller
     {
         $request->validate([
             'name'=>['required', 'string', 'max:100'],
-            'description'=>['string', 'max:300'],
         ]);
 
         $group->update([
             'name' => $request->name,
-            'description' => $request->description,
         ]);
 
         return redirect()->route('groups.show', ['group'=>$group]);
