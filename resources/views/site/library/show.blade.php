@@ -45,7 +45,9 @@
                     <p class="text-red-500 h-50">Book image HERE</p>
                 </div>
 
-                <a href="{{ $book->amazon_link }}" class="text-center bg-purple-500 text-purple-50 uppercase p-2 mt-2 hover:font-semibold rounded-4xl">Buy on Amazon</a>      
+                @if (auth()->user()->id != $user->id)
+                    <a href="{{ $book->amazon_link }}" class="text-center bg-purple-500 text-purple-50 uppercase p-2 mt-2 hover:font-semibold rounded-4xl">Buy on Amazon</a>      
+                @endif
 
                 @if(auth()->user()->id == $user->id)
                     <form action="{{ route('library.destroy', $book) }}" method="post">

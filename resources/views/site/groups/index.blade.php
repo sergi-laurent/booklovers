@@ -37,14 +37,6 @@
                                 <h3 class="font-bold text-2xl">{{$group->name}}</h3>
                                 <div class="flex justify-between items-center">
                                     <p class="text-gray-500 font-semibold line-clamp-2">Members ({{$group->users->count()}})</p>
-                                    <div class="text-right flex justify-end gap-2">
-                                        <a href="{{route('groups.edit', $group)}}" class="bg-blue-100 text-blue-500 uppercase p-2 hover:font-semibold rounded-sm">Edit Group</a>
-                                        <form action="{{route('groups.destroy', $group)}}" method="post">
-                                            @method('DELETE')
-                                            @csrf
-                                            <button type="submit" class="bg-red-100 text-red-500 uppercase p-2 hover:font-semibold rounded-sm">Delete Group</button>
-                                        </form>
-                                    </div>
                                 </div>    
                             </a>
                         </li>

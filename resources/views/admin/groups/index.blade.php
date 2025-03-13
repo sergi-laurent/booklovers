@@ -1,13 +1,8 @@
 <x-site-layout>
 
-    @if(Auth::user())
-        <div class="flex justify-end">
-            <a href="{{route('wishlist.show', Auth::user())}}" class="text-center bg-purple-500 text-purple-50 uppercase p-2 mb-4 hover:font-semibold rounded-xl">Your Wishlist</a> 
-        </div>
-    @endif
 
     <!--Message for Feedback to user after adding a New User--> 
-    <div class="my-4">
+    <div class="my-4 mt-10">
         @if (session('success'))
             <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative">
                 {{ session('success') }}
