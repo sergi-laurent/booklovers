@@ -1,60 +1,57 @@
-<li class="p-4 bg-gray-100 hover:bg-blue-50 flex flex-col justify-between h-full rounded-xl">
-    <a href="{{route('books.show', $book)}}">
-        <h3 class="font-bold text-2xl">{{$book->title}}</h3>
-        <div class="flex gap-1">
+<li class="p-6 bg-white shadow-lg hover:shadow-xl transition rounded-2xl flex flex-col justify-between h-full relative space-y-4">
+    <a href="{{ route('books.show', $book) }}" class="space-y-2">
+        <!-- Truncate title after 2 lines -->
+        <h3 class="font-bold text-2xl text-gray-900 line-clamp-2">{{ $book->title }}</h3>
+        <div class="flex gap-1 text-gray-600">
             <p class="line-clamp-2">By</p>
-            <p class="line-clamp-2 font-semibold">{{$book->author}}</p>
+            <p class="line-clamp-2 font-semibold">{{ $book->author }}</p>
         </div>     
     </a>
 
-    <!-- Push the image div to the bottom -->
-    <div class="flex-grow"></div>
-
-    <div class="p-4 bg-gray-300 rounded-xl mt-6">
-        <p class="text-red-500 h-50">Book image HERE</p>
+    <div class="flex grow"></div>
+    <!-- Image Placeholder (Will be replaced with book cover) -->
+    <div class="bg-gray-200 rounded-xl mt-auto h-48 flex items-center justify-center">
+        <p class="text-gray-500 italic">Book image HERE</p>
     </div>
 
-    @if(auth()->user())
-        @if(auth()->user()->books->contains($book->id))
-            <div class="bg-gray-300 text-white uppercase p-2 mt-2 text-center rounded hover:font-semibold w-full">
-                <p>You already have this book</p>
+    @if (auth()->user())
+        @if (auth()->user()->books->contains($book->id))
+            <div class="bg-gray-300 text-white uppercase py-2 px-4 mt-4 rounded-full text-center font-medium">
+                You already have this book
             </div>
-            
         @else
-            <form action="{{ route('library.store', $book->id) }}" method="POST">
+            <form action="{{ route('library.store', $book->id) }}" method="POST" class="mt-2">
                 @csrf
-                <button type="submit" class="bg-blue-500 text-white uppercase p-2 mt-2 text-center rounded hover:bg-blue-600 hover:font-semibold w-full">
+                <button type="submit" class="bg-blue-500 text-white uppercase py-2 px-4 rounded-full hover:bg-blue-600 transition w-full">
                     Add to Library
                 </button>
             </form>
         @endif
 
-        @if(auth()->user()->wishlist->books->contains($book->id))
-            <div class="bg-gray-300 text-white uppercase p-2 mt-2 text-center rounded hover:font-semibold w-full">
-                <p>This book is on your wishlist</p>
+        @if (auth()->user()->wishlist->books->contains($book->id))
+            <div class="bg-gray-300 text-white uppercase py-2 px-4 mt-4 rounded-full text-center font-medium">
+                This book is on your wishlist
             </div>
-            
         @else
-            <form action="{{ route('wishlist.store', $book->id) }}" method="POST">
+            <form action="{{ route('wishlist.store', $book->id) }}" method="POST" class="mt-2">
                 @csrf
-                <button type="submit" class="bg-green-700 text-white uppercase p-2 mt-2 text-center rounded hover:bg-blue-600 hover:font-semibold w-full">
+                <button type="submit" class="bg-green-600 text-white uppercase py-2 px-4 rounded-full hover:bg-green-700 transition w-full">
                     Add to Wishlist
                 </button>
             </form>
         @endif
     @else
-        <form action="{{ route('library.store', $book->id) }}" method="POST">
+        <form action="{{ route('library.store', $book->id) }}" method="POST" class="mt-2">
             @csrf
-            <button type="submit" class="bg-blue-500 text-white uppercase p-2 mt-2 text-center rounded hover:bg-blue-600 hover:font-semibold w-full">
+            <button type="submit" class="bg-blue-500 text-white uppercase py-2 px-4 rounded-full hover:bg-blue-600 transition w-full">
                 Add to Library
             </button>
         </form>
-        <form action="{{ route('wishlist.store', $book->id) }}" method="POST">
+        <form action="{{ route('wishlist.store', $book->id) }}" method="POST" class="mt-2">
             @csrf
-            <button type="submit" class="bg-green-700 text-white uppercase p-2 mt-2 text-center rounded hover:bg-blue-600 hover:font-semibold w-full">
+            <button type="submit" class="bg-green-600 text-white uppercase py-2 px-4 rounded-full hover:bg-green-700 transition w-full">
                 Add to Wishlist
             </button>
         </form>
     @endif
-
 </li>
