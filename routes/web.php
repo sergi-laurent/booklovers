@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use Livewire\Volt\Volt;
 
-// Private Area Frist - Then Public Area
+// Note: Private Area Frist - Then Public Area - Explained below the Admin Area
 
 // Private Area -> User Pages = Wishlist, Library and Group functionalities
 Route::middleware(['auth'])->group(function(){
@@ -37,11 +37,16 @@ Route::middleware(['auth'])->group(function(){
     
 });
 
-
+// ADMIN AREA
 Route::prefix('/admin')->name('admin.')->middleware(['auth'])->group(function(){
 
+    // Admin Books - Resourceful
     Route::resource('books', App\Http\Controllers\Admin\BookController::class);
+
+    // Admin Group - Resourceful
     Route::resource('groups', App\Http\Controllers\Admin\GroupController::class);
+
+    // Group Actions - Not Resourceful -> Functions Don't follow the standards
     Route::get('/groups/{group}/add-member', [\App\Http\Controllers\Admin\GroupMemberController::class, 'addMemberForm'])->name('groups.addMemberForm');
     Route::post('/groups/{group}/add-member', [\App\Http\Controllers\Admin\GroupMemberController::class, 'addMember'])->name('groups.addMember');
     Route::delete('/groups/{group}/quit-group', [\App\Http\Controllers\Admin\GroupMemberController::class, 'quitGroup'])->name('groups.quitGroup');
@@ -49,20 +54,22 @@ Route::prefix('/admin')->name('admin.')->middleware(['auth'])->group(function(){
 
 });
 
+// PUBLIC AREA
+// I put the Private Routes first becase I need the Create and Store routes for Books in the Private Area (only logged in users can create and sotre a book)
+// If I have the Public Area before that, then I will have the book show before /create and because of that, when accessing the url /books/create, 
+//  the route for create will be expecting a parameter (caused by /books/{book} of the show route)
+
 // Home Page Route
 Route::get('/', [\App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-// I put the Private Routes first becase I need the Create and store routes in the Private Area (only logged in users can create and sotre a book)
-// If I have the Public Area before that, then I will have the book show before /create and because if I have the show route first, 
-// then the route for create will be expecting a parameter
 
 // Books - Public Area
-Route::get('/books', [\App\Http\Controllers\BookController::class, 'index'])->name('books.index');
-Route::get('/books/{book}', [\App\Http\Controllers\BookController::class, 'show'])->name('books.show');
+Route::resource('books', \App\Http\Controllers\BookController::class)->only(['index', 'show']);
 
 
 // Groups - Public Area
-Route::get('/groups',[\App\Http\Controllers\GroupController::class, 'index'])->name('groups.index');
+Route::resource('groups', \App\Http\Controllers\GroupController::class)->only(['index']);
+
 
 
 Route::view('dashboard', 'dashboard')
