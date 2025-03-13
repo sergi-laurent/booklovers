@@ -24,7 +24,7 @@
         </div>
 
         <div class="flex justify-end pl-6">
-            <a href=" {{ route('groups.addMemberForm', $group->id) }} " class="text-center bg-purple-500 text-purple-50 uppercase p-2 hover:font-semibold rounded-4xl">+ Add Member</a> 
+            <x-top-right-button :route="route('groups.addMemberForm', $group->id)" text="+ Add Member" />
         </div>
     </div>
 

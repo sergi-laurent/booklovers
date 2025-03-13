@@ -5,9 +5,7 @@
     </div>
 
     @if(Auth::user())
-        <div class="flex justify-end">
-            <a href="{{route('wishlist.show', Auth::user())}}" class="text-center bg-purple-500 text-purple-50 uppercase p-2 hover:font-semibold rounded-4xl">Your Wishlist</a> 
-        </div>
+        <x-top-right-button :route="route('wishlist.show', ['user' => Auth::user()->id])" text="Your Wishlist" />
     @endif
 
     <!--Message for Feedback--> 
