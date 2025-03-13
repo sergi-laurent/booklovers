@@ -5,7 +5,7 @@
     <div class="px-4 mt-20">
         <div class="flex">
             <h3 class="text-gray-600 text-3xl font-bold">Explore All Books</h3>
-            <h3 class="text-gray-500 text-3xl font-semibold mx-2">- {{$books->count()}} Best Sellers</h3>
+            <h3 class="text-gray-500 text-3xl font-semibold mx-2">- {{$books_all_count}} Best Sellers</h3>
         </div>
 
         <div class="flex justify-end pl-6">
@@ -26,5 +26,11 @@
             <x-general-library :book="$book" :user="Auth::user()" />
         @endforeach
     </ul>
+
+    <!-- Pagination Links -->
+    <div class="mt-8">
+        {{ $books->links('pagination::tailwind') }}
+    </div>
+
 
 </x-site-layout>

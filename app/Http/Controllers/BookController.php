@@ -10,9 +10,10 @@ class BookController extends Controller
     public function index()
     {
         //Step 1: fetch the data -> Get all the data about books
-        $books = Book::all();   
+        $books = Book::paginate(12);
+        $books_all_count = Book::all()->count();
         //Step 2 -> render the data
-        return view('site.books.index', ['books'=>$books]);
+        return view('site.books.index', ['books'=>$books, 'books_all_count'=>$books_all_count]);
     }
 
     public function show(Book $book)

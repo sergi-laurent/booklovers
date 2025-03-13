@@ -20,7 +20,7 @@ class GroupController extends Controller
             abort(401); // Unauthorized
         }
 
-        $groups = Group::with('users')->get();
+        $groups = Group::with('users')->paginate(10);
         return view('admin.groups.index', ['groups'=> $groups]);
     }
 

@@ -4,11 +4,11 @@
     <div class="px-4 mt-20">
         <div class="flex">
             <h3 class="text-gray-600 text-3xl font-bold">ADMIN Explore All Books</h3>
-            <h3 class="text-gray-500 text-3xl font-semibold mx-2">- {{$books->count()}} Best Sellers</h3>
+            <h3 class="text-gray-500 text-3xl font-semibold mx-2">- {{$books_all_count}} Best Sellers</h3>
         </div>
 
         <div class="flex justify-end pl-6">
-            <a href="{{route('admin.books.create')}}" class="text-center bg-purple-500 text-purple-50 uppercase p-2 hover:font-semibold rounded-4xl">Create Book</a> 
+            <x-top-right-button :route="route('admin.books.create')" text="Create Book" />
         </div>
     </div>
 
@@ -18,8 +18,6 @@
         <x-feedback-message type="error" />
     </div>
 
-
-    
 
     <ul class="grid grid-cols-1 gap-8 mt-2">
         @foreach($books as $book)
@@ -36,7 +34,7 @@
                 <!-- Make entire card clickable -->
                 <a href="{{ route('admin.books.show', $book) }}" class="w-full flex gap-x-6">
                     <!-- BOOK IMAGE (Left) -->
-                    <div class="w-20 h-30 flex-shrink-0 flex items-center justify-center bg-gray-300 rounded-xl"> 
+                    <div class="w-24 h-36 flex-shrink-0 flex items-center justify-center bg-gray-300 rounded-xl"> 
                             <p class="text-red-500 text-center">Book image HERE</p>
                     </div>
 
@@ -52,5 +50,10 @@
             </li>
         @endforeach
     </ul>
+
+    <!-- Pagination Links -->
+    <div class="mt-8">
+        {{ $books->links('pagination::tailwind') }}
+    </div>
 
 </x-site-layout>

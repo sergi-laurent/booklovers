@@ -10,6 +10,11 @@
         <x-feedback-message type="error" />
     </div>
 
+    <!-- Pagination Links -->
+    <div class="mt-8">
+        {{ $groups->links('pagination::tailwind') }}
+    </div>
+
     @if(auth()->user())
         @if($groups->isEmpty())
             <div class="text-gray-500 font-bold text-2xl text-center">
