@@ -27,14 +27,7 @@
                 You don't have any groups yet
                 @else
                     @foreach($groups as $group)
-                        <li class="bg-gray-100 p-6 rounded-2xl hover:bg-blue-50">
-                            <a href="{{route('groups.show', $group)}}">
-                                <h3 class="font-bold text-2xl">{{$group->name}}</h3>
-                                <div class="flex justify-between items-center">
-                                    <p class="text-gray-500 font-semibold line-clamp-2">Members ({{$group->users->count()}})</p>
-                                </div>    
-                            </a>
-                        </li>
+                        <x-group-card :group="$group" />
                     @endforeach
                 @endif
             </ul>
