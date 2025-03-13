@@ -13,7 +13,14 @@ class WishlistController extends Controller
     public function show(User $user)
     {
 
-        $user = User::where('id', $user->id)->first();
+        if (
+            $user->id !== Auth::user()->id && // Not the same user
+            !Auth::user()->is_admin && // Not an admin
+            !Auth::user()->groups->pluck('id')->intersect($user->groups->pluck('id'))->isNotEmpty() // No shared groups
+        ) {
+            abort(401); // Unauthorized
+        }
+
         $wishlist = $user->wishlist->load('books');
         //$wishlist = Auth::user()->wishlist->load('books');
         $wishlist_books = $wishlist->books;
@@ -29,6 +36,9 @@ class WishlistController extends Controller
     public function store(Book $book)
     {
         $user = Auth::user(); // Explicitly using Auth facade
+
+        // Retrieve the user's wishlist
+        $wishlist = $user->wishlist()->first();
 
         // Prevent duplicate entries
         if ($user->wishlist->books()->where('book_id', $book->id)->exists()) {
