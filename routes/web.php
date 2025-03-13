@@ -49,10 +49,15 @@ Route::middleware(['auth'])->group(function(){
 });
 
 
-    
 Route::prefix('/admin')->name('admin.')->middleware(['auth'])->group(function(){
 
     Route::resource('books', App\Http\Controllers\Admin\BookController::class);
+    Route::resource('groups', App\Http\Controllers\Admin\GroupController::class);
+    Route::get('/groups/{group}/add-member', [\App\Http\Controllers\Admin\GroupMemberController::class, 'addMemberForm'])->name('groups.addMemberForm');
+    Route::post('/groups/{group}/add-member', [\App\Http\Controllers\Admin\GroupMemberController::class, 'addMember'])->name('groups.addMember');
+    Route::delete('/groups/{group}/quit-group', [\App\Http\Controllers\Admin\GroupMemberController::class, 'quitGroup'])->name('groups.quitGroup');
+    Route::delete('/groups/{group}/remove-member/{user}', [\App\Http\Controllers\Admin\GroupMemberController::class, 'removeMember'])->name('groups.removeMember');
+
 });
 
 
