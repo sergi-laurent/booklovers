@@ -50,6 +50,8 @@ Route::middleware(['auth'])->group(function(){
 
 
     
+Route::prefix('/admin')->name('admin.')->middleware(['auth'])->group(function(){
+
     Route::resource('books', App\Http\Controllers\Admin\BookController::class);
 });
 
