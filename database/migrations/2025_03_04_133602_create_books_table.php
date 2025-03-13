@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string(column:'title');
             $table->text(column:'summary');
             $table->string(column:'author');
-            $table->string(column:'amazon_link');
+            $table->string(column:'amazon_link')->nullable();
 
             $table->timestamps();
         });
