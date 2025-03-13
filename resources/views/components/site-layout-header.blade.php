@@ -12,7 +12,7 @@
             <div>
                 @if(auth()->user() != null)
                     <div class="flex justify-center gap-4">
-                        <a href="" class="bg-blue-50 text-blue-500 p-1 rounded-sm px-2 whitespace-nowrap"> {{ auth()->user()->name }} </a>
+                        <a href="{{ route('admin.groups.index') }}" class="bg-blue-50 text-blue-500 p-1 rounded-sm px-2 whitespace-nowrap"> {{ auth()->user()->name }} </a>
                         <form method="POST" action="{{ route('logout') }}" class="w-full">
                             @csrf
                             <button type="submit" icon="arrow-right-start-on-rectangle" class="bg-blue-50 text-blue-500 p-1 rounded-sm px-2">
