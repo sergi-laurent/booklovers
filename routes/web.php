@@ -26,6 +26,8 @@ Route::middleware(['auth'])->group(function(){
     
     Route::get('/groups/{group}/add-member', [\App\Http\Controllers\GroupMemberController::class, 'addMemberForm'])->name('groups.addMemberForm');
     Route::post('/groups/{group}/add-member', [\App\Http\Controllers\GroupMemberController::class, 'addMember'])->name('groups.addMember');
+    Route::delete('/groups/{group}/quit-group', [\App\Http\Controllers\GroupMemberController::class, 'quitGroup'])->name('groups.quitGroup');
+
 
     Route::get('/groups/join-group', [\App\Http\Controllers\GroupMemberController::class, 'joinGroupForm'])->name('groups.joinGroupForm');
     Route::post('/groups/join-group', [\App\Http\Controllers\GroupMemberController::class, 'joinGroup'])->name('groups.joinGroup');

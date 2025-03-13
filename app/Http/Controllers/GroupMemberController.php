@@ -78,4 +78,14 @@ class GroupMemberController extends Controller
 
         return redirect()->route('groups.show', $group)->with('success', 'You joined the group successfully!');
     }
+
+    public function quitGroup(Request $request, Group $group)
+{
+    if ($request->user()->groups()->where('groups.id', $group->id)->exists()) {
+        $request->user()->groups()->detach($group->id);
+        return redirect(route('groups.index'))->with('success', "You're no longer a member of $group->name Secret Santa.");
+    }
+
+    return redirect(route('groups.index'))->with('error', 'You are not a member of this group.');
+}
 }

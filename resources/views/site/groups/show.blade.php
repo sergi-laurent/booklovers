@@ -56,4 +56,14 @@
         
     
 
+    @if(auth()->user()->groups->contains($group))
+        <form action="{{ route('groups.quitGroup', $group) }}" method="post">
+            @method('DELETE')
+            @csrf
+            <button type="submit" class="block text-center bg-red-100 text-red-500 uppercase p-2 px-4 hover:font-semibold  rounded-xl mt-4 w-full">
+                Quit Group
+            </button>
+        </form>
+    @endif
+
 </x-site-layout>
