@@ -4,8 +4,9 @@
         <h2 class="font-bold">SECRET BOOKS</h2>
     </div>
 
-    <div class="bg-gray-100 m-auto p-4 mb-8 rounded-2xl flex justify-center items-center mx-auto">
+    <div class="bg-gray-100 m-auto p-4 rounded-2xl justify-center items-center mx-auto flex flex-col">
         <h1 class="font-bold text-2xl">{{$group->name}}</h1>
+        <p class="text-lg mt-2">{{$group->code}}</p>
     </div>
 
     <!--Message for Feedback to user after adding a New User--> 
