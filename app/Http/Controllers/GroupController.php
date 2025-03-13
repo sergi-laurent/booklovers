@@ -63,30 +63,7 @@ class GroupController extends Controller
         return view('site.groups.show', ['group'=>$group ]);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Group $group)
-    {
-        return view('site.groups.edit', ['group'=>$group]);
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Group $group)
-    {
-        $request->validate([
-            'name'=>['required', 'string', 'max:100'],
-        ]);
-
-        $group->update([
-            'name' => $request->name,
-        ]);
-
-        return redirect()->route('groups.show', ['group'=>$group]);
-
-    }
+    
 
     /**
      * Remove the specified resource from storage.

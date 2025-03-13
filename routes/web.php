@@ -22,6 +22,8 @@ Route::middleware(['auth'])->group(function(){
     Route::post('/library/{book}', [\App\Http\Controllers\LibraryController::class, 'store'])->name('library.store');
     Route::delete('/library/{book}', [\App\Http\Controllers\LibraryController::class, 'destroy'])->name('library.destroy');
 
+    // Group Actions - Resourceful except index because it's public
+    Route::resource('groups', \App\Http\Controllers\GroupController::class)->except(['index','edit', 'update']);
     
     // Group Membership
     Route::get('/groups/{group}/add-member', [\App\Http\Controllers\GroupMemberController::class, 'addMemberForm'])->name('groups.addMemberForm');
