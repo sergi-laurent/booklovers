@@ -1,5 +1,8 @@
 <x-site-layout>
 
+    <div class="bg-gray-100 h-20 w-50 p-4 mb-8 rounded-2xl flex justify-center items-center mx-auto">
+        <h2 class="font-bold">SECRET BOOKS</h2>
+    </div>
 
     <!--Message for Feedback to user after adding a New User--> 
     <div class="my-4 mt-10">

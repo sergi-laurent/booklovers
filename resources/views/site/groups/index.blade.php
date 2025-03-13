@@ -1,5 +1,9 @@
 <x-site-layout>
 
+    <div class="bg-gray-100 h-20 w-50 p-4 mb-8 rounded-2xl flex justify-center items-center mx-auto">
+        <h2 class="font-bold">SECRET BOOKS</h2>
+    </div>
+
     @if(Auth::user())
         <div class="flex justify-end">
             <a href="{{route('wishlist.show', Auth::user())}}" class="text-center bg-purple-500 text-purple-50 uppercase p-2 mb-4 hover:font-semibold rounded-xl">Your Wishlist</a> 
