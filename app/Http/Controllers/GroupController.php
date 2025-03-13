@@ -93,6 +93,11 @@ class GroupController extends Controller
      */
     public function destroy(Group $group)
     {
+        if (!Auth::user()->is_admin) // Not an admin
+             {
+            abort(401); // Unauthorized
+        }
+
         $group->delete();
 
         return redirect()->route('groups.index');
