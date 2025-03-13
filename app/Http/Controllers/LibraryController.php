@@ -12,7 +12,14 @@ class LibraryController extends Controller
 {
     public function show(User $user)
     {
-        $user = User::where('id', $user->id)->first();
+        if (
+            $user->id !== Auth::user()->id && // Not the same user
+            !Auth::user()->is_admin && // Not an admin
+            !Auth::user()->groups->pluck('id')->intersect($user->groups->pluck('id'))->isNotEmpty() // No shared groups
+        ) {
+            abort(401); // Unauthorized
+        }
+        
         $books_owned=$user->books;
         $books_count = $books_owned->count();
         return view('site.library.show', ['user'=>$user, 'books_owned'=>$books_owned, 'books_count'=>$books_count]);
