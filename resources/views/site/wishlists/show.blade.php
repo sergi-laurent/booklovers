@@ -7,7 +7,7 @@
         </div>
 
         <div class="flex justify-end pl-6">
-            <a href="{{ route('books.index') }}" class="text-center bg-purple-500 text-purple-50 uppercase p-2 hover:font-semibold rounded-4xl">+ Add Book</a> 
+            <x-top-right-button :route="route('books.index')" text="+ Add Book" /> 
         </div>
     </div>
 
