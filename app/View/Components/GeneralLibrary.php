@@ -13,9 +13,12 @@ class GeneralLibrary extends Component
     /**
      * Create a new component instance.
      */
-    public function __construct(public Book $book, public User $user)
+
+    // I had a Bug where Not Logged in Users couldn't access the Book Index because the component expects a Logged in User
+     
+    public function __construct(public Book $book, public ?User $user) // Allow $user to be null
     {
-        //
+        
     }
 
     /**
