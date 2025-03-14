@@ -24,7 +24,11 @@ class Book extends Model
 
     public function getSummaryText(): string
     {
-        return str_replace('<p>', '<p class="mb-4 text-lg text-slate-800">', $this->summary);
+        $summary = $this->summary;
+        $summary = str_replace('<p>', '<p class="mb-4 text-lg text-slate-800">', $this->summary);
+        $summary = str_replace('<ul>', '<ul class="list-disc pl-4 text-lg text-slate-800 mb-4">', $this->summary);
+
+        return $summary;
     }
 
 
