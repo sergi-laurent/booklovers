@@ -22,6 +22,10 @@ Route::middleware(['auth'])->group(function(){
     Route::post('/library/{book}', [\App\Http\Controllers\LibraryController::class, 'store'])->name('library.store');
     Route::delete('/library/{book}', [\App\Http\Controllers\LibraryController::class, 'destroy'])->name('library.destroy');
 
+    
+    Route::get('/groups/join-group', [\App\Http\Controllers\GroupMemberController::class, 'joinGroupForm'])->name('groups.joinGroupForm');
+    Route::post('/groups/join-group', [\App\Http\Controllers\GroupMemberController::class, 'joinGroup'])->name('groups.joinGroup');
+
     // Group Actions - Resourceful except index because it's public
     Route::resource('groups', \App\Http\Controllers\GroupController::class)->except(['index','edit', 'update']);
     
@@ -31,8 +35,7 @@ Route::middleware(['auth'])->group(function(){
 
     Route::delete('/groups/{group}/quit-group', [\App\Http\Controllers\GroupMemberController::class, 'quitGroup'])->name('groups.quitGroup');
 
-    Route::get('/groups/join-group', [\App\Http\Controllers\GroupMemberController::class, 'joinGroupForm'])->name('groups.joinGroupForm');
-    Route::post('/groups/join-group', [\App\Http\Controllers\GroupMemberController::class, 'joinGroup'])->name('groups.joinGroup');
+    
 
     
 });
