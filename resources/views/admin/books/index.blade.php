@@ -35,7 +35,15 @@
                 <a href="{{ route('admin.books.show', $book) }}" class="w-full flex gap-x-6">
                     <!-- BOOK IMAGE (Left) -->
                     <div class="w-24 h-36 flex-shrink-0 flex items-center justify-center bg-gray-300 rounded-xl"> 
-                            <p class="text-red-500 text-center">Book image HERE</p>
+                        @if($book->getMedia('cover')->isNotEmpty())
+                            <img src="{{ $book->getMedia('cover')->first()->getUrl() }}" 
+                                    alt="Book Cover" 
+                                    class="rounded-lg shadow-md object-cover w-full h-full">
+                        @else
+                            <img src="{{ Storage::url('defaults/Book_Cover_Mockup_Paperback-01-Thumbnail.webp') }}" 
+                                alt="Book Cover Preview" 
+                                class="rounded-lg shadow-md object-cover w-full h-full">
+                        @endif
                     </div>
 
                     <!-- BOOK DETAILS (Right) -->

@@ -11,7 +11,15 @@
     <div class="flex grow"></div>
     <!-- Image Placeholder (Will be replaced with book cover) -->
     <div class="bg-gray-200 rounded-xl mt-auto h-48 flex items-center justify-center">
-        <p class="text-gray-500 italic">Book image HERE</p>
+        @if($book->getMedia('cover')->isNotEmpty())
+            <img src="{{ $book->getMedia('cover')->first()->getUrl() }}" 
+                    alt="Book Cover" 
+                    class="rounded-lg shadow-md object-cover w-full h-full">
+        @else
+            <img src="{{ Storage::url('defaults/Book_Cover_Mockup_Paperback-01-Thumbnail.webp') }}" 
+                alt="Book Cover Preview" 
+                class="rounded-lg shadow-md object-cover w-full h-full">
+        @endif
     </div>
 
     @if (auth()->user() && auth()->user()->id != $user->id) 

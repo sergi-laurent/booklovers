@@ -60,7 +60,9 @@ class BookController extends Controller
                 'title' => $request->title,
                 'summary'=> $request->summary,
                 'author'=> $request->author,
-            ]);      
+            ]);   
+            
+        
 
         return redirect()->route('admin.books.index');
     }
@@ -85,13 +87,21 @@ class BookController extends Controller
         $request->validate([
             'title'=>['required', 'string', 'min:10', 'max:255'],
             'summary'=>['required', 'string', 'min:10', 'max:1000'],
+            'cover' => ['nullable', 'file', 'mimes:jpg,jpeg,png,webp', 'max:2048'],
+
         ]);
 
         $book->update([
                 'title' => $request->title,
                 'summary'=> $request->summary,
                 'author'=> $request->author,
-            ]);      
+            ]); 
+            
+        if($request->has('cover')){
+            $book->getMedia('cover')->each->delete();
+            $book->addMediaFromRequest('cover') ->toMediaCollection('cover');
+        }
+        
 
         return redirect()->route('admin.books.show', $book);
     }

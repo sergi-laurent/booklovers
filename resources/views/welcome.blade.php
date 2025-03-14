@@ -36,6 +36,8 @@
                 <!-- Placeholder Image -->
                 <!--<img src="https://via.placeholder.com/500x400" alt="Best Seller Books" 
                      class="rounded-lg shadow-md object-cover w-full h-full">-->
+                <img src="{{ Storage::url('defaults/1a41c6129280821.61679c7a9ada6.jpg') }}" 
+                    alt="Book Cover Preview" class="rounded-lg shadow-md object-cover w-full h-full">
             </div>
         </div>
 

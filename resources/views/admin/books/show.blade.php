@@ -8,6 +8,16 @@
                 @csrf
                 <button type="submit" class="bg-red-100 text-red-500 uppercase p-2 hover:font-semibold rounded-sm">Delete Book</button>
             </form>
+        <!-- Left Column (Book Cover) -->
+        <div>
+            <div class="bg-gray-100 h-[600px] p-6 rounded-2xl flex items-center justify-center shadow-md">
+                @if($book->getMedia('cover')->isNotEmpty())
+                    <img src="{{ $book->getMedia('cover')->first()->getUrl('') }}" 
+                    alt="Book Cover" class="rounded-lg shadow-md object-cover w-full h-full">
+                @else
+                    <p class="text-gray-500">No cover image available</p>
+                @endif
+            </div>
         </div>
     @endif
 

@@ -1,5 +1,5 @@
 <div class="max-w-lg mx-auto bg-white shadow-md rounded-xl p-6">
-    <form action="{{$action}}" method="post">
+    <form action="{{$action}}" enctype="multipart/form-data" method="post">
 
         @csrf
 

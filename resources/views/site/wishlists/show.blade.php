@@ -33,7 +33,15 @@
                 
                 <!-- Book Image (Left) -->
                 <div class="w-40 h-60 flex-shrink-0 flex items-center justify-center bg-gray-300 rounded-lg"> 
-                    <p class="text-gray-500 text-center">Book image HERE</p>
+                    @if($book->getMedia('cover')->isNotEmpty())
+                        <img src="{{ $book->getMedia('cover')->first()->getUrl() }}" 
+                                alt="Book Cover" 
+                                class="rounded-lg shadow-md object-cover w-full h-full">
+                    @else
+                        <img src="{{ Storage::url('defaults/Book_Cover_Mockup_Paperback-01-Thumbnail.webp') }}" 
+                            alt="Book Cover Preview" 
+                            class="rounded-lg shadow-md object-cover w-full h-full">
+                    @endif
                 </div>
 
                 <!-- Book Details (Middle) -->
