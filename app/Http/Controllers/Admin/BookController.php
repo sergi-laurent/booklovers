@@ -53,7 +53,7 @@ class BookController extends Controller
 
         $request->validate([
             'title'=>['required', 'string', 'min:10', 'max:255'],
-            'summary'=>['required', 'string', 'min:10', 'max:255'],
+            'summary'=>['required', 'string', 'min:10', 'max:1000'],
         ]);
 
         Book::create([
@@ -84,7 +84,7 @@ class BookController extends Controller
         
         $request->validate([
             'title'=>['required', 'string', 'min:10', 'max:255'],
-            'summary'=>['required', 'string', 'min:10', 'max:255'],
+            'summary'=>['required', 'string', 'min:10', 'max:1000'],
         ]);
 
         $book->update([
