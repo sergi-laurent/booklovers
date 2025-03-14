@@ -22,5 +22,10 @@ class Book extends Model
         return $this->belongsToMany(Wishlist::class, 'book_wishlist');
     }
 
+    public function getSummaryText(): string
+    {
+        return str_replace('<p>', '<p class="mb-4 text-lg text-slate-800">', $this->summary);
+    }
+
 
 }

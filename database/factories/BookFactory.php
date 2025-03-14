@@ -17,6 +17,7 @@ class BookFactory extends Factory
      */
     public function definition(): array
     {
+        
         return [
 
             /*Chat-Gpt Prompt:
@@ -24,10 +25,20 @@ class BookFactory extends Factory
             */
             
             'title'=>fake()->sentence(),
-            'summary'=>fake()->text(),
+            'summary'=>$this->getSummary(),
             'author'=>fake()->name(),
             'amazon_link' => "https://www.amazon.com/dp/" . Str::random(10) . "?tag=your-affiliate-id",
 
         ];
+    }
+
+    private function getSummary(): string
+    {
+        $summary ='';
+        for($x = 0; $x < rand(1,3); $x++){
+            $summary.= '<p>'.fake()->realTextBetween(100,450).'</p>';
+        }
+
+        return $summary;
     }
 }

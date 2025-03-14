@@ -7,5 +7,5 @@
         <p class="line-clamp-2 mt-2 font-semibold">{{$book->author}}</p>
     </div>
 
-    <p class="mt-4">{{$book->summary}}<p>
+    <p class="mt-4">{!! $book->getSummaryText()  !!}<p>   <!-- The !! allows us to use the RealText with paragraphs-->
 </x-site-layout>
