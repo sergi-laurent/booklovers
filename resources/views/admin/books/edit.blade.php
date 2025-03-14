@@ -11,9 +11,7 @@
 
         <x-form-input name='author' label='Author name' placeholder='Write the author of this book here' :value='$book->author'/>
 
-        <x-form-text-area name='summary' label='Book summary' rows='7' placeholder='Write the summary of the book here' :value='$book->summary'/>
-
-        
+        <x-form-text-area name='summary' label='Book summary' rows='7' placeholder='Write the summary of the book here' :value='$book->summary' rte/>
 
     </x-form>
     

@@ -11,7 +11,7 @@
 
         <x-form-input name='author' label='Author name' placeholder='Write the author of this book here'/>
 
-        <x-form-text-area name='summary' label='Book summary' rows='7' placeholder='Write the summary here'/>
+        <x-form-text-area name='summary' label='Book summary' rows='7' placeholder='Write the summary here' rte/>
 
         
 
