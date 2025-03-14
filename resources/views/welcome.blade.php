@@ -31,11 +31,7 @@
         <!-- Right Column -->
         <div>
             <div class="bg-gray-100 h-[600px] p-6 mb-8 rounded-2xl flex flex-col items-center justify-center shadow-md">
-                <h3 class="font-semibold text-xl text-gray-700 mb-4">📚 Best Sellers</h3>
-                
                 <!-- Placeholder Image -->
-                <!--<img src="https://via.placeholder.com/500x400" alt="Best Seller Books" 
-                     class="rounded-lg shadow-md object-cover w-full h-full">-->
                 <img src="{{ Storage::url('defaults/1a41c6129280821.61679c7a9ada6.jpg') }}" 
                     alt="Book Cover Preview" class="rounded-lg shadow-md object-cover w-full h-full">
             </div>
